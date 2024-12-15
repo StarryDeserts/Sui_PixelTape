@@ -171,25 +171,49 @@ export default function App() {
 
   // @ts-ignore
   return (
-    <div>
+    <div style={{ position: 'relative', width: '100vw', height: '100vh', overflow: 'hidden' }}>
       <Toaster />
-      <style>{`body { margin: 0; }`}</style>
+      <style>{`
+        body { margin: 0; }
+        .free-mint-button {
+          position: absolute;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: #7A288A;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+        .free-mint-button:hover {
+          background-color: #5E1D6C;
+        }
+      `}</style>
+
       {/* 渲染器的画布 */}
-      <div ref={mountRef} style={{ width: "100vw", height: "100vh" }} />
+      <div ref={mountRef} style={{ width: "100%", height: "100%" }} />
+
       {/* 标题 */}
-      <div
-        style={{
-          position: "absolute",
-          top: "8px",
-          left: "0",
-          right: "0",
-          zIndex: "10",
-        }}
-      >
+      <div style={{
+        position: "absolute",
+        top: "0",
+        left: "0",
+        right: "0",
+        height: "150px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden"
+      }}>
         <AnimatedTitle />
       </div>
-      {/* 左上角 ConnectButton */}
-      <div style={{ position: "absolute", top: "20px", right: "20px" }}>
+
+      {/* ConnectButton */}
+      <div style={{ position: "absolute", top: "20px", right: "20px", zIndex: "20" }}>
         <ConnectButton />
       </div>
 
