@@ -64,7 +64,7 @@ export default function App() {
 
     const loader = new GLTFLoader();
     loader.load(
-      "./public/mod.glb",
+      "/mod.glb",
       function (gltf) {
         console.log(2);
         scene.add(gltf.scene);
